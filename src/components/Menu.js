@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import MenuList from './MenuList'
 import { Button } from './common/'
 
 export default class Menu extends React.Component {
   static navigationOptions = {
-    title: 'Menu',
-    headerLeft: null,
+    title: 'Nuestros Paninis',
+    headerTintColor: '#fff',
     headerStyle: { backgroundColor: '#95bf32' },
-    headerTitleStyle: { color: 'white', fontWeight: '600' }
+    headerTitleStyle: { color: 'white', fontWeight: '600', fontFamily: 'Avenir Next' }
   }
 
   render() {
@@ -15,12 +16,7 @@ export default class Menu extends React.Component {
 
     return (
       <MainContainer>
-        <Text>Welcome to the MenuScreen! 🎉</Text>
-        <ButtonContainer>
-          <Button onPress={() => goBack()} bgColor="white" borderColor="#007aff" color="#007aff">
-            👈 Go Back
-          </Button>
-        </ButtonContainer>
+        <MenuList />
       </MainContainer>
     )
   }
