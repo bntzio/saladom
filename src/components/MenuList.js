@@ -1,36 +1,29 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { Text } from 'react-native'
+import MenuItem from './MenuItem'
 
 const panini = require('./../../assets/images/panini.png')
+const menu = require('./../../data/menu');
 
 export default class MenuList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { menu }
+  }
+
+  renderMenu() {
+    return this.state.menu.map(item => {
+      return <MenuItem key={item.id} title={item.name} description={item.description} image={item.image} />
+    })
+  }
+
   render() {
     return (
       <View>
         <ScrollView>
           <MenuContainer>
-            <MenuItem>
-              <MenuItemImage source={panini} />
-              <MenuItemInfo>
-                <MenuItemTitle>Panini Clásico</MenuItemTitle>
-                <MenuItemDescription>Exquisito panini clásico con jamón ibérico y queso fresco.</MenuItemDescription>
-              </MenuItemInfo>
-            </MenuItem>
-            <MenuItem>
-              <MenuItemImage source={panini} />
-              <MenuItemInfo>
-                <MenuItemTitle>Panini Clásico</MenuItemTitle>
-                <MenuItemDescription>Exquisito panini clásico con jamón ibérico y queso fresco.</MenuItemDescription>
-              </MenuItemInfo>
-            </MenuItem>
-            <MenuItem>
-              <MenuItemImage source={panini} />
-              <MenuItemInfo>
-                <MenuItemTitle>Panini Clásico</MenuItemTitle>
-                <MenuItemDescription>Exquisito panini clásico con jamón ibérico y queso fresco.</MenuItemDescription>
-              </MenuItemInfo>
-            </MenuItem>
+            {this.renderMenu()}
           </MenuContainer>
         </ScrollView>
       </View>
@@ -54,38 +47,4 @@ const ScrollView = styled.ScrollView`
 
 const MenuContainer = styled.View`
   display: flex;
-`
-
-const MenuItem = styled.View`
-  display: flex;
-  flex-direction: row;
-  height: 100px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 50px;
-`
-
-const MenuItemImage = styled.Image`
-  display: flex;
-  width: 80px;
-  height: 80px;
-`
-
-const MenuItemInfo = styled.View`
-  display: flex;
-  margin-left: 15px;
-`
-
-const MenuItemTitle = styled.Text`
-  font-size: 19px;
-  font-weight: 600;
-  font-family: 'Avenir Next';
-  flex-wrap: wrap;
-`
-
-const MenuItemDescription = styled.Text`
-  font-size: 16px;
-  font-family: 'Avenir Next';
-  flex-wrap: wrap;
 `
