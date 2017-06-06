@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StackNavigator } from 'react-navigation'
 import Login from './src/components/Login'
+import Menu from './src/components/Menu'
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <Login />
-    )
-  }
-}
+const App = StackNavigator({
+  LoginScreen: { screen: Login },
+  MenuScreen: { screen: Menu }
+})
+
+export default App

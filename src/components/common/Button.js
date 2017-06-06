@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-const Button = ({ onPress, children }) => {
+const Button = ({ onPress, bgColor, borderColor, color, children }) => {
   return (
-    <TouchableButton onPress={onPress} activeOpacity={0.7}>
-      <ButtonText>
+    <TouchableButton onPress={onPress} activeOpacity={0.7} bgColor={bgColor} borderColor={borderColor}>
+      <ButtonText color={color}>
         {children}
       </ButtonText>
     </TouchableButton>
@@ -13,18 +13,18 @@ const Button = ({ onPress, children }) => {
 
 const TouchableButton = styled.TouchableOpacity`
   display: flex;
-  flex: 1;
   align-self: center;
   justify-content: center;
-  background-color: white;
-  border: 2px solid #007aff;
-  padding: 5px 10px;
+  background-color: ${props => props.bgColor};
+  border: 2px solid white;
+  border-color: ${props => props.borderColor};
+  padding: 8px 12px;
   border-radius: 4px;
 `
 
 const ButtonText = styled.Text`
   font-family: 'Avenir Next';
-  color: #007aff;
+  color: ${props => props.color};
   font-size: 20px;
   font-weight: 600;
 `

@@ -6,12 +6,18 @@ import { Button } from './common/'
 const logo = require('./../../assets/images/logo.png')
 
 export default class Login extends React.Component {
+  static navigationOptions = {
+    header: null
+  }
+
   render() {
+    const { navigate } = this.props.navigation
+
     return (
       <MainContainer>
         <Image source={logo} />
         <ButtonContainer>
-          <Button>
+          <Button onPress={() => navigate('MenuScreen')} bgColor="#95bf32" borderColor="#fff" color="#fff">
             Ordena Ahora 😋
           </Button>
         </ButtonContainer>
@@ -21,7 +27,7 @@ export default class Login extends React.Component {
 }
 
 const MainContainer = styled.View`
-  background-color: white;
+  background-color: #95bf32;
   display: flex;
   flex: 1;
   justify-content: flex-start;
