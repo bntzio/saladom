@@ -1,32 +1,32 @@
 import React from 'react'
-import { Text, TouchableOpacity } from 'react-native'
+import styled from 'styled-components/native'
 
 const Button = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles
-
   return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle} activeOpacity={0.7}>
-      <Text style={textStyle}>
+    <TouchableButton onPress={onPress} activeOpacity={0.7}>
+      <ButtonText>
         {children}
-      </Text>
-    </TouchableOpacity>
+      </ButtonText>
+    </TouchableButton>
   )
 }
 
-const styles = {
-  buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff'
-  },
-  textStyle: {
-    fontFamily: 'Avenir Next',
-    alignSelf: 'center',
-    color: '#007aff',
-    fontSize: 20,
-    fontWeight: '600',
-    paddingTop: 10
-  }
-}
+const TouchableButton = styled.TouchableOpacity`
+  display: flex;
+  flex: 1;
+  align-self: center;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid #007aff;
+  padding: 5px 10px;
+  border-radius: 4px;
+`
+
+const ButtonText = styled.Text`
+  font-family: 'Avenir Next';
+  color: #007aff;
+  font-size: 20px;
+  font-weight: 600;
+`
 
 export { Button }
