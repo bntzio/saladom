@@ -16,7 +16,7 @@ export default class Menu extends React.Component {
 
     return (
       <MainContainer>
-        <MenuList />
+        <MenuList navigate={navigate} />
       </MainContainer>
     )
   }

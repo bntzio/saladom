@@ -1,29 +1,32 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Text } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import MenuItem from './MenuItem'
 
 const panini = require('./../../assets/images/panini.png')
 const menu = require('./../../data/menu');
 
 export default class MenuList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { menu }
-  }
+  renderMenu(navigate) {
+    return menu.map(item => {
+      const { id, name, description, image } = item
 
-  renderMenu() {
-    return this.state.menu.map(item => {
-      return <MenuItem key={item.id} title={item.name} description={item.description} image={item.image} />
+      return (
+        <TouchableOpacity key={id} onPress={() => navigate('OrderScreen', { name, description, image })}>
+          <MenuItem title={name} description={description} image={image} />
+        </TouchableOpacity>
+      )
     })
   }
 
   render() {
+    const { navigate } = this.props
+
     return (
       <View>
         <ScrollView>
           <MenuContainer>
-            {this.renderMenu()}
+            {this.renderMenu(navigate)}
           </MenuContainer>
         </ScrollView>
       </View>
