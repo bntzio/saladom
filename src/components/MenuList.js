@@ -9,10 +9,10 @@ const menu = require('./../../data/menu');
 export default class MenuList extends React.Component {
   renderMenu(navigate) {
     return menu.map(item => {
-      const { id, name, description, image } = item
+      const { id, name, description, price, ingredients, image } = item
 
       return (
-        <TouchableOpacity key={id} onPress={() => navigate('OrderScreen', { name, description, image })}>
+        <TouchableOpacity key={id} onPress={() => navigate('OrderScreen', { name, description, price, ingredients, image })}>
           <MenuItem title={name} description={description} image={image} />
         </TouchableOpacity>
       )
