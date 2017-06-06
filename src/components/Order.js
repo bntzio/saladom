@@ -18,6 +18,7 @@ export default class Order extends React.Component {
 
   render() {
     const { name, description, price, image, ingredients } = this.props.navigation.state.params
+    const { navigate } = this.props.navigation
 
     return (
       <OrderContainer>
@@ -29,8 +30,8 @@ export default class Order extends React.Component {
           <IngredientTitle>Ingredientes</IngredientTitle>
             {this.renderIngredients(ingredients)}
         </OrderIngredients>
-        <Button bgColor="#95bf32" borderColor="#95bf32" color="#fff">
-          Comprar Ahora 💰
+        <Button onPress={() => navigate('CheckoutScreen', { name, price })} bgColor="#95bf32" borderColor="#95bf32" color="#fff">
+          Seleccionar 🥖
         </Button>
       </OrderContainer>
     )
