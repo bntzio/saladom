@@ -15,7 +15,7 @@ export default class Login extends React.Component {
 
     return (
       <MainContainer>
-        <Image source={logo} />
+        <Logo source={logo} />
         <ButtonContainer>
           <Button onPress={() => navigate('MenuScreen')} bgColor="#95bf32" borderColor="#fff" color="#fff">
             Ordena Ahora 😋
@@ -25,6 +25,11 @@ export default class Login extends React.Component {
     )
   }
 }
+
+const Logo = styled(Image)`
+  width: 220px;
+  height: 220px;
+`
 
 const MainContainer = styled.View`
   background-color: #95bf32;
